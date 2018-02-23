@@ -237,5 +237,4 @@ def dataFromDic(dictionary,sheet_by_sub_key):
 
                 row_idx += 1
 
-    saveWb(wb,newfilename)
     return wb
