@@ -1,9 +1,23 @@
 #PERSONAL PYTHON LIBRARIES BY DACOBOS
 
-#1) LOG_HELPER.PY: This library redirects the stdoutput to a .log file
+#1) DATE_HELPER.PY: This library get the current date and time and return in an string
 
      Depends:
-     sys library
+     datetime library
+
+     Arguments:
+     None
+
+     Usage:
+     date = GetDateString()
+
+     Returns:
+     String with Date and Time
+
+#2) LOG_HELPER.PY: This library redirects the stdoutput to a .log file
+
+     Depends:
+     sys, date_helper  library
 
      Arguments:
      String: Full path of logfile.log
@@ -12,7 +26,7 @@
      To start logging instance an object from the class Logger to the sys.stdout: sys.stdout = Logger(../logfile.log)
      To clear the logfile use: sys.stdout.clear(../logfile.log)
 
-#2) FILE_HELPER.PY: This Library allows to select a file or folder for any python script, it depends on PythonQt4
+#3) FILE_HELPER.PY: This Library allows to select a file or folder for any python script, it depends on PythonQt4
 
      Depends: PyQt4 Library
 
@@ -32,7 +46,7 @@
      C:\path\where\wheel\is\> pip install PyQt4-4.11.4-cp35-none-win_amd64.whl
 
 
-#3) EXCEL_HELPER.PY This library simplify the reading and writing of excel files using the best combination of  xlrd and openpyxl
+#4) EXCEL_HELPER.PY This library simplify the reading and writing of excel files using the best combination of  xlrd and openpyxl
 
       Depends:
       xlrd, openpyxl
