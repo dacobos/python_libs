@@ -47,164 +47,164 @@
 
 #4) EXCEL_HELPER.PY This library simplify the reading and writing of excel files using the best combination of  xlrd and openpyxl
 
- Depends:
- xlrd, openpyxl
-Usage:
-from excel_helper import *
+      Depends:
+      xlrd, openpyxl
+      Usage:
+      from excel_helper import *
 
 
-Methods:
+      Methods:
 
-read_data(filename)
-Arguments:
-filename: Full path of filename .xls or .xlsx to read the data
-Usage:
-data = read_data(../file.xlsx)
+      read_data(filename)
+      Arguments:
+      filename: Full path of filename .xls or .xlsx to read the data
+      Usage:
+      data = read_data(../file.xlsx)
 
-Returns:
-Multilevel List with all the information of the xlsx file, where each element of the list corresponds to a row
-
--------------------------------------------------------------------------------------------------------------------
-
-getColumnId(data, columnName)
-Arguments:
-data - Multilevel list containing the xlsx file result of read_data method
-columnName - String with the name of the table header
-
-Usage:
-columnId = getColumnId(data, columnName)
-
-Returns:
-Integer number of position in the row inner list
+      Returns:
+      Multilevel List with all the information of the xlsx file, where each element of the list corresponds to a row
 
 -------------------------------------------------------------------------------------------------------------------
 
-getRowsByKey(data, key)
-Arguments:
+#getColumnId(data, columnName)
+      Arguments:
+      data - Multilevel list containing the xlsx file result of read_data method
+      columnName - String with the name of the table header
 
-data - Multilevel list containing the xlsx file result of read_data method
-key - String with one particular name in the whole xlsx file that corresponds to a key
-Usage:
-rows = getRowsByKey(data, key)
+      Usage:
+      columnId = getColumnId(data, columnName)
 
-Returns:
-Dictionary with the key equals to key argument and value corresponds to a list with the row numbers where key was found in xlsx document
-
--------------------------------------------------------------------------------------------------------------------
-
-getRowsByColumn(data, columnId, value)
-Arguments:
-data - Multilevel list containing the xlsx file result of read_data method
-columnId - Integer with the specific position in row list to limit the search of value to the specific column, given by manual entry or return by getColumnId method.
-value - String with one particular value in an specific column given by columnId
-
-Usage:
-Rows =  getRowsByColumn(data, columnId, value)
-
-Returns:
-Different than getRowsByKey this method returns a list not a dictionary of the rows where the value was found on an specific column
+      Returns:
+      Integer number of position in the row inner list
 
 -------------------------------------------------------------------------------------------------------------------
 
-getValues(data, rows)
-Arguments:
-data - Multilevel list containing the xlsx file result of read_data method
-rows - Dictionary return by getRowsByKey method
+#getRowsByKey(data, key)
 
-Usage:
-values = getValues(data, rows)
+      Arguments:
+      data - Multilevel list containing the xlsx file result of read_data method
+      key - String with one particular name in the whole xlsx file that corresponds to a key
+      Usage:
+      rows = getRowsByKey(data, key)
 
-Returns:
-Multi level list with the values of each rows found by getRowsByKey
-
--------------------------------------------------------------------------------------------------------------------
-
-getCellValue(data, rowId, columnId)
-Arguments:
-data - Multilevel list containing the xlsx file result of read_data method
-rowId - Integer number that belongs to the row corresponding to the value, can be an element of the list obtained by getRowsByKey or getRowsbyColumn
-columnId - Integer with the specific position in row list to limit the search of value to the specific column, given by manual entry or return by getColumnId method.
-
-Usage:
-value = getCellValue(data, rowId, columnId)
-
-Returns:
-The value corresponding to the cell defined by rowId and columnId in the correspondig format (float, integer, boolean, string, etc)
+      Returns:
+      Dictionary with the key equals to key argument and value corresponds to a list with the row numbers where key was found in xlsx document
 
 -------------------------------------------------------------------------------------------------------------------
 
-updateCell(data, rowId, columnId, newValue)
-Arguments:
-data - Multilevel list containing the xlsx file result of read_data method
-rowId - Integer number that belongs to the row corresponding to the value, can be an element of the list obtained by getRowsByKey or getRowsbyColumn
-columnId - Integer with the specific position in row list to limit the search of value to the specific column, given by manual entry or return by getColumnId method.
-newValue - The value to replace the specific cell defined by rowId and columnId
+#getRowsByColumn(data, columnId, value)
+      Arguments:
+      data - Multilevel list containing the xlsx file result of read_data method
+      columnId - Integer with the specific position in row list to limit the search of value to the specific column, given by manual entry or return by getColumnId method.
+      value - String with one particular value in an specific column given by columnId
 
-Usage:
-updateCell(data, rowId, columnId, newValue)
+      Usage:
+      Rows =  getRowsByColumn(data, columnId, value)
 
-Returns:
-None
-
--------------------------------------------------------------------------------------------------------------------
-
-readXlsxSheet(filename)
-Arguments:
-filename: Full path of filename .xls or .xlsx to read the data
-
-Usage:
-wb = readXlsxSheet(filename)
-
-Returns:
-Openpyxl Worksheet containing all the information of xlsx
+      Returns:
+      Different than getRowsByKey this method returns a list not a dictionary of the rows where the value was found on an specific column
 
 -------------------------------------------------------------------------------------------------------------------
 
-writeXlsx(data, newfilename)
-Arguments:
-data - Multilevel list containing the xlsx file result of read_data method
-newfilename - Full path of the new filename to be written
+#getValues(data, rows)
+      Arguments:
+      data - Multilevel list containing the xlsx file result of read_data method
+      rows - Dictionary return by getRowsByKey method
 
-Usage:
-writeXlsx(data, newfilename)
+      Usage:
+      values = getValues(data, rows)
 
-Returns:
-Writes the newfilename in xlsx format
-
--------------------------------------------------------------------------------------------------------------------
-
-duplicateXlsx(template_file, new_data_file)
-Arguments:
-template_file - Original xlsx to be cloned
-new_data_file - Multi level list with all the values to be written using the template_file
-
-Usage:
-duplicataXlsx(template_file, new_data_file)
-
-Returns:
-Openpyxl Workbook with all the information of the original xlsx file using the new_data_file multilevel list
+      Returns:
+      Multi level list with the values of each rows found by getRowsByKey
 
 -------------------------------------------------------------------------------------------------------------------
 
-saveWb(wb, newfilename)
-Arguments:
-wb - Openpyxl workbook with all xlsx information, posible returned by duplicataXlsx
-newfilename - newfilename - Full path of the new filename to be written
+#getCellValue(data, rowId, columnId)
+      Arguments:
+      data - Multilevel list containing the xlsx file result of read_data method
+      rowId - Integer number that belongs to the row corresponding to the value, can be an element of the list obtained by getRowsByKey or getRowsbyColumn
+      columnId - Integer with the specific position in row list to limit the search of value to the specific column, given by manual entry or return by getColumnId method.
 
-Usage:
+      Usage:
+      value = getCellValue(data, rowId, columnId)
 
-Returns:
+      Returns:
+      The value corresponding to the cell defined by rowId and columnId in the correspondig format (float, integer, boolean, string, etc)
 
 -------------------------------------------------------------------------------------------------------------------
 
-dataFromDic(dictionary,sheet_by_sub_key)
-Arguments:
-dictionary - Two level dictionary in format {'key':{'sub_key':[[],[],[]]}}
-sheet_by_sub_key - Boolean variable if True the new xlsx file sheet names will be defined by sub_key if False
-sheetnames will be defined by key
+#updateCell(data, rowId, columnId, newValue)
+      Arguments:
+      data - Multilevel list containing the xlsx file result of read_data method
+      rowId - Integer number that belongs to the row corresponding to the value, can be an element of the list obtained by getRowsByKey or getRowsbyColumn
+      columnId - Integer with the specific position in row list to limit the search of value to the specific column, given by manual entry or return by getColumnId method.
+      newValue - The value to replace the specific cell defined by rowId and columnId
 
-Usage:
-dataFromDic(dictionary, sheet_by_sub_key)
+      Usage:
+      updateCell(data, rowId, columnId, newValue)
 
-Returns:
-Openpyxl Workbook with all the information of the original xlsx file using the new_data_file multilevel list
+      Returns:
+      None
+
+-------------------------------------------------------------------------------------------------------------------
+
+#readXlsxSheet(filename)
+      Arguments:
+      filename: Full path of filename .xls or .xlsx to read the data
+
+      Usage:
+      wb = readXlsxSheet(filename)
+
+      Returns:
+      Openpyxl Worksheet containing all the information of xlsx
+
+-------------------------------------------------------------------------------------------------------------------
+
+#writeXlsx(data, newfilename)
+      Arguments:
+      data - Multilevel list containing the xlsx file result of read_data method
+      newfilename - Full path of the new filename to be written
+
+      Usage:
+      writeXlsx(data, newfilename)
+
+      Returns:
+      Writes the newfilename in xlsx format
+
+-------------------------------------------------------------------------------------------------------------------
+
+#duplicateXlsx(template_file, new_data_file)
+      Arguments:
+      template_file - Original xlsx to be cloned
+      new_data_file - Multi level list with all the values to be written using the template_file
+
+      Usage:
+      duplicataXlsx(template_file, new_data_file)
+
+      Returns:
+      Openpyxl Workbook with all the information of the original xlsx file using the new_data_file multilevel list
+
+-------------------------------------------------------------------------------------------------------------------
+
+#saveWb(wb, newfilename)
+      Arguments:
+      wb - Openpyxl workbook with all xlsx information, posible returned by duplicataXlsx
+      newfilename - newfilename - Full path of the new filename to be written
+
+      Usage:
+
+      Returns:
+
+-------------------------------------------------------------------------------------------------------------------
+
+#dataFromDic(dictionary,sheet_by_sub_key)
+      Arguments:
+      dictionary - Two level dictionary in format {'key':{'sub_key':[[],[],[]]}}
+      sheet_by_sub_key - Boolean variable if True the new xlsx file sheet names will be defined by sub_key if False
+      sheetnames will be defined by key
+
+      Usage:
+      dataFromDic(dictionary, sheet_by_sub_key)
+
+      Returns:
+      Openpyxl Workbook with all the information of the original xlsx file using the new_data_file multilevel list
