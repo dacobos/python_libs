@@ -1,6 +1,6 @@
-#PERSONAL PYTHON LIBRARIES BY DACOBOS
+PERSONAL PYTHON LIBRARIES BY DACOBOS
 
-#1) FILE_HELPER.PY: This Library allows to select a file or folder for any python script, it depends on PythonQt4
+1) FILE_HELPER.PY: This Library allows to select a file or folder for any python script, it depends on PythonQt4
      Depends: PyQt4 Library
 
      Arguments:
@@ -19,7 +19,7 @@
      C:\path\where\wheel\is\> pip install PyQt4-4.11.4-cp35-none-win_amd64.whl
 
 
-#2) ZIP_HELPER.PY: This Library allows to compress a file or folder from python.
+2) ZIP_HELPER.PY: This Library allows to compress a file or folder from python.
      Depends:
      zipfile library
 
@@ -34,7 +34,7 @@
     Returns:
      Full path and name of zip file
 
-#3) LOG_HELPER.PY: This library redirects the stdoutput to a .log file
+3) LOG_HELPER.PY: This library redirects the stdoutput to a .log file
      Depends:
      sys library
 
@@ -45,7 +45,7 @@
      To start logging instance an object from the class Logger to the sys.stdout: sys.stdout = Logger(../logfile.log)
      To clear the logfile use: sys.stdout.clear(../logfile.log)
 
-#4) EXCEL_HELPER.PY This library simplify the reading and writing of excel files using the best combination of  xlrd and openpyxl
+4) EXCEL_HELPER.PY This library simplify the reading and writing of excel files using the best combination of  xlrd and openpyxl
 
       Depends:
       xlrd, openpyxl
@@ -66,7 +66,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#getColumnId(data, columnName)
+getColumnId(data, columnName)
+
       Arguments:
       data - Multilevel list containing the xlsx file result of read_data method
       columnName - String with the name of the table header
@@ -79,7 +80,7 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#getRowsByKey(data, key)
+getRowsByKey(data, key)
 
       Arguments:
       data - Multilevel list containing the xlsx file result of read_data method
@@ -92,7 +93,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#getRowsByColumn(data, columnId, value)
+getRowsByColumn(data, columnId, value)
+
       Arguments:
       data - Multilevel list containing the xlsx file result of read_data method
       columnId - Integer with the specific position in row list to limit the search of value to the specific column, given by manual entry or return by getColumnId method.
@@ -106,7 +108,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#getValues(data, rows)
+getValues(data, rows)
+
       Arguments:
       data - Multilevel list containing the xlsx file result of read_data method
       rows - Dictionary return by getRowsByKey method
@@ -119,7 +122,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#getCellValue(data, rowId, columnId)
+getCellValue(data, rowId, columnId)
+
       Arguments:
       data - Multilevel list containing the xlsx file result of read_data method
       rowId - Integer number that belongs to the row corresponding to the value, can be an element of the list obtained by getRowsByKey or getRowsbyColumn
@@ -133,7 +137,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#updateCell(data, rowId, columnId, newValue)
+updateCell(data, rowId, columnId, newValue)
+
       Arguments:
       data - Multilevel list containing the xlsx file result of read_data method
       rowId - Integer number that belongs to the row corresponding to the value, can be an element of the list obtained by getRowsByKey or getRowsbyColumn
@@ -148,7 +153,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#readXlsxSheet(filename)
+readXlsxSheet(filename)
+
       Arguments:
       filename: Full path of filename .xls or .xlsx to read the data
 
@@ -160,7 +166,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#writeXlsx(data, newfilename)
+writeXlsx(data, newfilename)
+
       Arguments:
       data - Multilevel list containing the xlsx file result of read_data method
       newfilename - Full path of the new filename to be written
@@ -173,7 +180,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#duplicateXlsx(template_file, new_data_file)
+duplicateXlsx(template_file, new_data_file)
+
       Arguments:
       template_file - Original xlsx to be cloned
       new_data_file - Multi level list with all the values to be written using the template_file
@@ -186,7 +194,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#saveWb(wb, newfilename)
+saveWb(wb, newfilename)
+
       Arguments:
       wb - Openpyxl workbook with all xlsx information, posible returned by duplicataXlsx
       newfilename - newfilename - Full path of the new filename to be written
@@ -197,7 +206,8 @@
 
 -------------------------------------------------------------------------------------------------------------------
 
-#dataFromDic(dictionary,sheet_by_sub_key)
+dataFromDic(dictionary,sheet_by_sub_key)
+
       Arguments:
       dictionary - Two level dictionary in format {'key':{'sub_key':[[],[],[]]}}
       sheet_by_sub_key - Boolean variable if True the new xlsx file sheet names will be defined by sub_key if False
