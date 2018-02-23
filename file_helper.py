@@ -1,18 +1,20 @@
-# File Helper for Python
-# Requirements PyQt4
-# Developer: David Cobos/cdcobos1999@gmail.com/dacobos@cisco.com
+
+################################  MODULE  INFO  ################################
+# Author: David  Cobos
+# Cisco Systems Solutions Integrations Architect
+# Mail: cdcobos1999@gmail.com  / dacobos@cisco.com
+##################################  IMPORTS   ##################################
+
+
+# Depends: PyQt4 Library
 
 # Usage Example to select a file:
-# Import File_Helper then call Method Select with the argument 'file'
-# Ex:
 # from file_helper import *
 # f = select('file')
-
-# Usage Example to select a folder:
-# Import File_Helper then call Method Select with the argument 'folder'
-# Ex:
-# from file_helper import *
+# Or
 # f = select('folder')
+
+# Returns: file or folder path
 
 # Un official Windows binaries to install PyQt4 https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4
 # In the filenames cp27 means C-python version 2.7, cp35 means python 3.5, etc.
@@ -82,9 +84,6 @@ class Widget(QtGui.QWidget):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
         self.show()
-
-
-
 
 def select(arg):
     window = Widget()
