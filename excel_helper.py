@@ -7,6 +7,7 @@ from openpyxl.utils import get_column_letter
 from copy import copy
 
 
+
 def read_data(filename):
     data = []
     # Read an XLS or XLSX File and create a List of the file
@@ -15,6 +16,7 @@ def read_data(filename):
     num_rows = xl_sheet.nrows
     for i in range(0, num_rows):
         data.append(xl_sheet.row_values(i))
+    print "excel_helper.py - result: Data read from: " + str(filename)
     return data
 
 def getColumnId(data, columnName):
@@ -72,13 +74,16 @@ def updateCell(data, rowId, columnId, newValue):
     # Based on a row number and a column headerId update the cell value
     try:
         data[rowId][columnId] = newValue
+        print "excel_helper.py - result: Cell updated with: " + str(newValue)
         return True
     except:
+        print "excel_helper.py - result: Could't update cell with: " + str(newValue)
         return False
 
 def readXlsxSheet(filename):
     workbook = load_workbook(filename)
     worksheet = workbook.active
+    print "excel_helper.py - result: Worksheet loaded " + str(worksheet)
     return worksheet
 
 def writeXlsx(data, newfilename):
@@ -88,6 +93,7 @@ def writeXlsx(data, newfilename):
     for i in range(len(data)):
         ws.append(data[i])
     wb.save(newfilename)
+    print "excel_helper.py - result: Workbook Saved " + str(newfilename)
     return newfilename
 
 def duplicateXlsx(template_file, new_data_file):
@@ -142,18 +148,19 @@ def duplicateXlsx(template_file, new_data_file):
             cell = cell_range[i]
             for c in cell:
                 c.border = copy(bordered.border)
-
+        print "excel_helper.py - result: Workbook Created from: " + str(template_file)
         return wb_new
 
 def saveWb(wb, newfilename):
     ws = wb.active
     wb.save(newfilename)
+    print "excel_helper.py - result: Workbook Saved to:" + str(newfilename)
     return
 
 def dataFromDic(dictionary,sheet_by_sub_key):
     wb = Workbook()
     ws = wb.active
-    wb.remove_sheet(ws)
+    wb.remove(ws)
     command_list = []
     row_idx = 1
     col_idx = 0
@@ -236,5 +243,5 @@ def dataFromDic(dictionary,sheet_by_sub_key):
                     pass
 
                 row_idx += 1
-
+    print "excel_helper.py - result: Workbook Created " + str(wb)
     return wb

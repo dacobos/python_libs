@@ -13,6 +13,7 @@
 # To Clear the Log use: sys.stdout.clear(../logfile.log)
 
 import sys
+from date_helper import *
 
 class Logger(object):
     def __init__(self, LOG_FILE):
@@ -24,7 +25,8 @@ class Logger(object):
 
     def write(self, message):
         self.terminal.write(message)
-        self.log.write(message)
+        self.log.write(GetDateString()+" ")
+        self.log.write(message + " ")
         self.log.flush()
 
     def flush(self):

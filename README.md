@@ -1,6 +1,18 @@
 #PERSONAL PYTHON LIBRARIES BY DACOBOS
 
-#1) FILE_HELPER.PY: This Library allows to select a file or folder for any python script, it depends on PythonQt4
+#1) LOG_HELPER.PY: This library redirects the stdoutput to a .log file
+
+     Depends:
+     sys library
+
+     Arguments:
+     String: Full path of logfile.log
+
+     Usage:
+     To start logging instance an object from the class Logger to the sys.stdout: sys.stdout = Logger(../logfile.log)
+     To clear the logfile use: sys.stdout.clear(../logfile.log)
+
+#2) FILE_HELPER.PY: This Library allows to select a file or folder for any python script, it depends on PythonQt4
 
      Depends: PyQt4 Library
 
@@ -20,35 +32,7 @@
      C:\path\where\wheel\is\> pip install PyQt4-4.11.4-cp35-none-win_amd64.whl
 
 
-#2) ZIP_HELPER.PY: This Library allows to compress a file or folder from python.
-
-     Depends:
-     zipfile library
-
-     Arguments:
-     String: Full path of folder of file to be commpressed
-
-     Usage:
-     from zip_helper import zipper
-     zipper('/home/username/folder')
-
-
-    Returns:
-     Full path and name of zip file
-
-#3) LOG_HELPER.PY: This library redirects the stdoutput to a .log file
-
-     Depends:
-     sys library
-
-     Arguments:
-     String: Full path of logfile.log
-
-     Usage:
-     To start logging instance an object from the class Logger to the sys.stdout: sys.stdout = Logger(../logfile.log)
-     To clear the logfile use: sys.stdout.clear(../logfile.log)
-
-#4) EXCEL_HELPER.PY This library simplify the reading and writing of excel files using the best combination of  xlrd and openpyxl
+#3) EXCEL_HELPER.PY This library simplify the reading and writing of excel files using the best combination of  xlrd and openpyxl
 
       Depends:
       xlrd, openpyxl
@@ -212,7 +196,7 @@
 #dataFromDic(dictionary,sheet_by_sub_key)
 
       Arguments:
-      dictionary - Two level dictionary in format {'key':{'sub_key':[[],[],[]]}}
+      dictionary - Two level dictionary in format {'key1':{'sub_key1':[[],[],[]], 'sub_key2':[[],[],[]]}, 'key2':{'sub_key1':[[],[],[]], 'sub_key2':[[],[],[]]}}
       sheet_by_sub_key - Boolean variable if True the new xlsx file sheet names will be defined by sub_key if False
       sheetnames will be defined by key
 

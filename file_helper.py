@@ -26,6 +26,7 @@ from PyQt4 import QtGui, QtCore
 import sys
 
 
+
 app=QtGui.QApplication(sys.argv)
 result = None
 
@@ -95,6 +96,7 @@ def select(arg):
     else:
         pass
     app.exec_()
+    print "file_helper.py - result: Selected " + str(result)
     return str(result)
 
 def main():
@@ -104,6 +106,7 @@ def main():
         print "You selected: " + result
     else:
         print "That option "+arg+" did't work, you must have written: (file or folder)"
+    print "file_helper.py - result: Selected " + str(result)
     return result
 
 if __name__ == "__main__":
